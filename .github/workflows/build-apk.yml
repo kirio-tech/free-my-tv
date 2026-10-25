@@ -41,6 +41,9 @@ jobs:
           sed -i -E 's/--min-sdk-version [0-9]+/--min-sdk-version 26/; s/--min-api [0-9]+/--min-api 26/' build.sh
           grep -nE "min-sdk-version|min-api" build.sh || true
 
+      - name: Apply my changes
+        run: python3 mods/apply.py
+
       - name: Build
         run: |
           chmod +x build.sh
